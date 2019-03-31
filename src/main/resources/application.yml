@@ -1,0 +1,25 @@
+#####使用哪个环境 prod生成环境  dev开发环境########
+spring:
+  profiles:
+    active: dev
+########## JPA配置 ##########   
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    database: mysql
+########## 静态资源访问配置 ###########
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/
+
+  thymeleaf:
+    cache: false #开启模板热部署
+######## mybatis配置 #############
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  type-aliases-package: com.pibigstar.domain # 实体扫描路径
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰命名   
+
